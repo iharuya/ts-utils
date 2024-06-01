@@ -1,0 +1,6 @@
+{
+	"name": "@iharuya/array",
+	"version": "0.0.3",
+	"description": "A collection of utility functions for arrays",
+	"exports": "./mod.ts"
+}
