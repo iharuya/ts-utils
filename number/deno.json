@@ -1,0 +1,7 @@
+{
+  "name": "@iharuya/number",
+  "version": "0.0.2",
+  "description": "A collection of utility functions regarding to numbers",
+  "exports": "./mod.ts",
+  "license": "MIT"
+}
