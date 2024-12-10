@@ -21,9 +21,11 @@
  * @returns {T[]} - A new array with the item replaced.
  *
  * @example
+ * ```ts
  * const arr = [1, 2, 3, 4, 5];
  * const newArr = replaceItemAtIndex(arr, 2, 10);
  * console.log(newArr); // Output: [1, 2, 10, 4, 5]
+ * ```
  */
 export const replaceItemAtIndex = <T>(
   arr: T[],
@@ -42,9 +44,11 @@ export const replaceItemAtIndex = <T>(
  * @returns {T[]} - A new array with the item removed.
  *
  * @example
+ * ```ts
  * const arr = [1, 2, 3, 4, 5];
  * const newArr = removeItemAtIndex(arr, 2);
  * console.log(newArr); // Output: [1, 2, 4, 5]
+ * ```
  */
 export const removeItemAtIndex = <T>(arr: T[], index: number): T[] => {
   return [...arr.slice(0, index), ...arr.slice(index + 1)];
@@ -58,8 +62,10 @@ export const removeItemAtIndex = <T>(arr: T[], index: number): T[] => {
  * @returns {number[]} - An array of numbers within the specified range.
  *
  * @example
+ * ```ts
  * range(1, 5); // [1, 2, 3, 4, 5]
  * range(10, 15); // [10, 11, 12, 13, 14, 15]
+ * ```
  */
 export const range = (s: number, e: number): number[] => {
   const length = e - s + 1;
@@ -82,9 +88,11 @@ type Primitive = string | number | boolean;
  * @returns `true` if the arrays are equal, `false` otherwise.
  *
  * @example
+ * ```ts
  * const arr1 = [1, 2, 3];
  * const arr2 = [1, 2, 3];
  * console.log(isSame(arr1, arr2)); // Output: true
+ * ```
  */
 export const isSame = (a: Primitive[], b: Primitive[]): boolean =>
   a.length === b.length && a.every((val, index) => val === b[index]);

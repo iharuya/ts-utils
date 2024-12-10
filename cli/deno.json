@@ -1,0 +1,7 @@
+{
+  "name": "@iharuya/cli",
+  "version": "0.0.1",
+  "description": "A collection of utility functions regarding to cli",
+  "exports": "./mod.ts",
+  "license": "MIT"
+}

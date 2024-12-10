@@ -27,6 +27,7 @@ export const sleep = (ms: number): Promise<void> =>
  *   await download(item);
  *   await randomSleep(new Range(1000, 5000));
  * }
+ * ```
  */
 export function randomSleep(range: Range): Promise<void> {
   const sleepDuration = range.getRandomValue();

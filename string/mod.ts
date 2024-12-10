@@ -18,9 +18,11 @@
  * @returns The normalized string.
  *
  * @example
+ * ```ts
  * const input = "Café"
  * const normalized = normalizeString(input)
  * console.log(normalized) // Output: "Cafe"
+ * ```
  */
 export const normalizeString = (str: string): string => {
   return str.normalize("NFKC");
@@ -33,8 +35,10 @@ export const normalizeString = (str: string): string => {
  * @returns A random string of the specified length.
  *
  * @example
+ * ```ts
  * const randomString = getRandomString(10);
  * console.log(randomString); // Output: "3aBcD4eFgH"
+ * ```
  */
 export const getRandomString = (len: number): string => {
   const chars =

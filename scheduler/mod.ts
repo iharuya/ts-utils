@@ -62,7 +62,9 @@ export class Scheduler {
    * @param options.maxConcurrent - The maximum number of tasks that can run concurrently.
    * @param options.minTime - The minimum time (in milliseconds) between the start of two consecutive tasks.
    * @example
+   * ```ts
    * const scheduler = new Scheduler({ maxConcurrent: 2, minTime: 1000 });
+   * ```
    */
   constructor(options: { maxConcurrent: number; minTime: number }) {
     this.#maxConcurrent = options.maxConcurrent;
@@ -100,10 +102,12 @@ export class Scheduler {
    * @returns A promise that resolves with the result of the task or rejects if the task throws an error.
    * @template Res - The type of the task's result.
    * @example
+   * ```ts
    * const result = scheduler.schedule(async () => {
    *   // Perform some asynchronous operation
    *   return "result";
    * });
+   * ```
    */
   schedule<Res>(task: () => Promise<Res>): Promise<Res> {
     return new Promise<Res>((resolve, reject) => {

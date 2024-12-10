@@ -6,8 +6,10 @@
 /**
  * Represents a range of numbers.
  * @example
+ * ```ts
  * const range = new Range(1, 10);
  * console.log(range.getRandomValue()); // Output: a random number between 1 and 10
+ * ```
  */
 export class Range {
   /**
@@ -25,7 +27,9 @@ export class Range {
    * @param max - The maximum value of the range.
    * @throws Will throw an error if min is greater than max.
    * @example
+   * ```ts
    * const range = new Range(1, 10);
+   * ```
    */
   constructor(min: number, max: number) {
     if (min > max) {
@@ -39,8 +43,10 @@ export class Range {
    * Returns a random integer within the range (inclusive).
    * @returns A random integer between min and max.
    * @example
+   * ```ts
    * const range = new Range(1, 10);
    * const randomValue = range.getRandomValue();
+   * ```
    */
   getRandomValue(): number {
     return Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;

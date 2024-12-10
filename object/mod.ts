@@ -18,10 +18,12 @@
  * @param obj - The object whose keys need to be renamed.
  * @returns A new object with the renamed keys.
  * @example
+ * ```ts
  * const keysMap = { firstName: 'name', age: 'years' };
  * const obj = { firstName: 'John', age: 25 };
  * const renamedObj = renameKeys(keysMap, obj);
  * // renamedObj: { name: 'John', years: 25 }
+ * ```
  */
 export const renameKeys = (
   keysMap: { [key: string]: string },
@@ -41,12 +43,14 @@ export const renameKeys = (
  * @param obj2 - The second object to compare.
  * @returns `true` if the objects are the same, `false` otherwise.
  * @example
+ * ```ts
  * const obj1 = { name: 'John', age: 30 };
  * const obj2 = { name: 'John', age: 30 };
  * const obj3 = { name: 'Jane', age: 25 };
  *
  * console.log(areSameObjects(obj1, obj2)); // Output: true
  * console.log(areSameObjects(obj1, obj3)); // Output: false
+ * ```
  */
 export const areSameObjects = (obj1: unknown, obj2: unknown): boolean => {
   return JSON.stringify(obj1) === JSON.stringify(obj2);
