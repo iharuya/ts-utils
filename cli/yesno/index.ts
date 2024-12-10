@@ -28,7 +28,7 @@ export function yesOrNo(
       return true;
     } else if (answer === "n" || answer === "no") {
       return false;
-    } else if (answer === null || answer === "") { // handle null in case prompt is cancelled (Ctrl+C)
+    } else if (answer === "") {
       return defaultValue;
     } else {
       console.warn("Please answer with yes or no.");
