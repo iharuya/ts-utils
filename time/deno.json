@@ -1,6 +1,6 @@
 {
-	"name": "@iharuya/time",
-	"version": "0.0.3",
-	"description": "A collection of utility functions regarding to time",
-	"exports": "./mod.ts"
+  "name": "@iharuya/time",
+  "version": "0.0.3",
+  "description": "A collection of utility functions regarding to time",
+  "exports": "./mod.ts"
 }

@@ -24,16 +24,16 @@
  * // renamedObj: { name: 'John', years: 25 }
  */
 export const renameKeys = (
-	keysMap: { [key: string]: string },
-	obj: { [key: string]: unknown },
+  keysMap: { [key: string]: string },
+  obj: { [key: string]: unknown },
 ): { [key: string]: unknown } =>
-	Object.keys(obj).reduce(
-		(acc, key) => ({
-			...acc,
-			...{ [keysMap[key] || key]: obj[key] },
-		}),
-		{},
-	)
+  Object.keys(obj).reduce(
+    (acc, key) => ({
+      ...acc,
+      ...{ [keysMap[key] || key]: obj[key] },
+    }),
+    {},
+  );
 
 /**
  * Checks if two objects are the same by comparing their stringified representations.
@@ -49,5 +49,5 @@ export const renameKeys = (
  * console.log(areSameObjects(obj1, obj3)); // Output: false
  */
 export const areSameObjects = (obj1: unknown, obj2: unknown): boolean => {
-	return JSON.stringify(obj1) === JSON.stringify(obj2)
-}
+  return JSON.stringify(obj1) === JSON.stringify(obj2);
+};

@@ -1,6 +1,6 @@
 {
-	"name": "@iharuya/object",
-	"version": "0.0.1",
-	"description": "A collection of utility functions for objects",
-	"exports": "./mod.ts"
+  "name": "@iharuya/object",
+  "version": "0.0.1",
+  "description": "A collection of utility functions for objects",
+  "exports": "./mod.ts"
 }

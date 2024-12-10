@@ -23,8 +23,8 @@
  * console.log(normalized) // Output: "Cafe"
  */
 export const normalizeString = (str: string): string => {
-	return str.normalize("NFKC")
-}
+  return str.normalize("NFKC");
+};
 
 /**
  * Generates a random string of the specified length.
@@ -37,14 +37,15 @@ export const normalizeString = (str: string): string => {
  * console.log(randomString); // Output: "3aBcD4eFgH"
  */
 export const getRandomString = (len: number): string => {
-	const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	let str = ""
-	for (let i = 0; i <= len; i++) {
-		const n = Math.floor(Math.random() * chars.length)
-		str += chars[n]
-	}
-	return str
-}
+  const chars =
+    "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let str = "";
+  for (let i = 0; i <= len; i++) {
+    const n = Math.floor(Math.random() * chars.length);
+    str += chars[n];
+  }
+  return str;
+};
 
 /**
  * Converts a number to a Japanese yen formatted string.
@@ -60,7 +61,7 @@ export const getRandomString = (len: number): string => {
  * ```
  */
 export const jpyString = (price: number): string =>
-	price.toLocaleString("ja-JP", {
-		style: "currency",
-		currency: "JPY",
-	})
+  price.toLocaleString("ja-JP", {
+    style: "currency",
+    currency: "JPY",
+  });

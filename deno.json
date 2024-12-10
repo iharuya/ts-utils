@@ -1,6 +1,5 @@
 {
-	"fmt": {
-		"semiColons": false,
-		"useTabs": true
-	}
+  "tasks": {
+    "fix": "deno fmt && deno lint --fix"
+  }
 }
