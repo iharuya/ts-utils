@@ -1,6 +1,6 @@
 {
   "name": "@iharuya/scheduler",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Minimal task scheduler and rate limiter",
   "exports": "./mod.ts",
   "license": "MIT"

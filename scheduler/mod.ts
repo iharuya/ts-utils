@@ -6,7 +6,7 @@
  * ```typescript
  * import { Scheduler } from "jsr:@iharuya/scheduler";
  *
- * const scheduler = new Scheduler({ maxConcurrent: 2, minTime: 1000 });
+ * const scheduler = new Scheduler({ maxConcurrency: 2, minTime: 1000 });
  * const tasks = [];
  * for (let i = 0; i < 10; i++) {
  *   tasks.push(scheduler.schedule(() => fetch(`https://example.com/api/${i}`)));
@@ -25,7 +25,7 @@ type QueueItem<T> = {
  * A class that schedules asynchronous tasks with concurrency limits and minimum time between executions.
  */
 export class Scheduler {
-  #maxConcurrent: number;
+  #maxConcurrency: number;
   #minTime: number;
   // deno-lint-ignore no-explicit-any
   #queue: QueueItem<any>[] = [];
@@ -35,17 +35,17 @@ export class Scheduler {
   /**
    * Creates a new Scheduler instance.
    * @param options - Configuration options for the scheduler.
-   * @param options.maxConcurrent - The maximum number of tasks that can run concurrently.
+   * @param options.maxConcurrency - The maximum number of tasks that can run concurrently.
    * @param options.minTime - The minimum time (in milliseconds) between the *finishing times* of consecutive tasks.
    */
-  constructor(options: { maxConcurrent: number; minTime: number }) {
-    this.#maxConcurrent = options.maxConcurrent;
+  constructor(options: { maxConcurrency: number; minTime: number }) {
+    this.#maxConcurrency = options.maxConcurrency;
     this.#minTime = options.minTime;
     this.#lastRequestTime = 0;
   }
 
   async #run() {
-    while (this.#queue.length > 0 && this.#running < this.#maxConcurrent) {
+    while (this.#queue.length > 0 && this.#running < this.#maxConcurrency) {
       this.#running++;
       const item = this.#queue.shift()!;
       const elapsed = Date.now() - this.#lastRequestTime;
