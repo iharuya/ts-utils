@@ -6,7 +6,7 @@
  * ```typescript
  * import { Scheduler } from "jsr:@iharuya/scheduler";
  *
- * const scheduler = new Scheduler({ maxConcurrency: 2, minTime: 1000 });
+ * const scheduler = new Scheduler({ maxConcurrency: 2, extTime: 1000 });
  * const tasks = [];
  * for (let i = 0; i < 10; i++) {
  *   tasks.push(scheduler.schedule(() => fetch(`https://example.com/api/${i}`)));
@@ -26,7 +26,7 @@ type QueueItem<T> = {
  */
 export class Scheduler {
   #maxConcurrency: number;
-  #minTime: number;
+  #extTime: number;
   // deno-lint-ignore no-explicit-any
   #queue: QueueItem<any>[] = [];
   #running = 0;
@@ -36,11 +36,11 @@ export class Scheduler {
    * Creates a new Scheduler instance.
    * @param options - Configuration options for the scheduler.
    * @param options.maxConcurrency - The maximum number of tasks that can run concurrently.
-   * @param options.minTime - The minimum time (in milliseconds) between the *finishing times* of consecutive tasks.
+   * @param options.extTime - The extensional time (in milliseconds) to sleep after one of consecutive tasks finished.
    */
-  constructor(options: { maxConcurrency: number; minTime: number }) {
+  constructor(options: { maxConcurrency: number; extTime: number }) {
     this.#maxConcurrency = options.maxConcurrency;
-    this.#minTime = options.minTime;
+    this.#extTime = options.extTime;
     this.#lastRequestTime = 0;
   }
 
@@ -49,7 +49,7 @@ export class Scheduler {
       this.#running++;
       const item = this.#queue.shift()!;
       const elapsed = Date.now() - this.#lastRequestTime;
-      const waitTime = this.#minTime - elapsed;
+      const waitTime = this.#extTime - elapsed;
       if (waitTime > 0) {
         await new Promise((r) => setTimeout(r, waitTime));
       }

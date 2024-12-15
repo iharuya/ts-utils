@@ -7,7 +7,7 @@ import { sleep } from "jsr:@iharuya/time";
 import { Scheduler } from "./mod.ts";
 
 Deno.test("Scheduler limits concurrent requests", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 10, minTime: 0 });
+  const scheduler = new Scheduler({ maxConcurrency: 10, extTime: 0 });
   const tasks = [];
   for (let i = 0; i < 25; i++) {
     tasks.push(scheduler.schedule(() => sleep(100)));
@@ -22,7 +22,7 @@ Deno.test("Scheduler limits concurrent requests", async () => {
 });
 
 Deno.test("Scheduler limits concurrent requests even if tasks take arbitrary time", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 2, minTime: 0 });
+  const scheduler = new Scheduler({ maxConcurrency: 2, extTime: 0 });
   const tasks = [];
   tasks.push(scheduler.schedule(() => sleep(100)));
   tasks.push(scheduler.schedule(() => sleep(50)));
@@ -43,7 +43,7 @@ Deno.test("Scheduler limits concurrent requests even if tasks take arbitrary tim
 });
 
 Deno.test("Scheduler limits concurrent requests even if tasks take arbitrary time #2", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 3, minTime: 0 });
+  const scheduler = new Scheduler({ maxConcurrency: 3, extTime: 0 });
   const tasks = [];
   tasks.push(scheduler.schedule(() => sleep(100)));
   tasks.push(scheduler.schedule(() => sleep(50)));
@@ -67,8 +67,8 @@ Deno.test("Scheduler limits concurrent requests even if tasks take arbitrary tim
   assertAlmostEquals(elapsed, 350, 20);
 });
 
-Deno.test("Scheduler respects minTime", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 1, minTime: 200 });
+Deno.test("Scheduler respects extTime", async () => {
+  const scheduler = new Scheduler({ maxConcurrency: 1, extTime: 200 });
   const tasks = [];
   for (let i = 0; i < 3; i++) {
     tasks.push(scheduler.schedule(() => sleep(100)));
@@ -80,8 +80,8 @@ Deno.test("Scheduler respects minTime", async () => {
   assertAlmostEquals(elapsed, 700, 20);
 });
 
-Deno.test("Scheduler respects minTime even if tasks take arbitrary time", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 1, minTime: 200 });
+Deno.test("Scheduler respects extTime even if tasks take arbitrary time", async () => {
+  const scheduler = new Scheduler({ maxConcurrency: 1, extTime: 200 });
   const tasks = [];
   tasks.push(scheduler.schedule(() => sleep(50)));
   tasks.push(scheduler.schedule(() => sleep(150)));
@@ -93,8 +93,8 @@ Deno.test("Scheduler respects minTime even if tasks take arbitrary time", async 
   assertAlmostEquals(elapsed, 700, 20);
 });
 
-Deno.test("Scheduler limits concurrent requests and respects minTime", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 3, minTime: 200 });
+Deno.test("Scheduler limits concurrent requests and respects extTime", async () => {
+  const scheduler = new Scheduler({ maxConcurrency: 3, extTime: 200 });
   const tasks = [];
   for (let i = 0; i < 5; i++) {
     tasks.push(scheduler.schedule(() => sleep(100)));
@@ -106,8 +106,8 @@ Deno.test("Scheduler limits concurrent requests and respects minTime", async () 
   assertAlmostEquals(elapsed, 400, 20);
 });
 
-Deno.test("Scheduler limits concurrent requests and respects minTime even if tasks take arbitrary time", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 3, minTime: 100 });
+Deno.test("Scheduler limits concurrent requests and respects extTime even if tasks take arbitrary time", async () => {
+  const scheduler = new Scheduler({ maxConcurrency: 3, extTime: 100 });
   const tasks = [];
   tasks.push(scheduler.schedule(() => sleep(100)));
   tasks.push(scheduler.schedule(() => sleep(50)));
@@ -132,13 +132,13 @@ Deno.test("Scheduler limits concurrent requests and respects minTime even if tas
 });
 
 Deno.test("Scheduler task result goes back to the caller", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 1, minTime: 0 });
+  const scheduler = new Scheduler({ maxConcurrency: 1, extTime: 0 });
   const result = await scheduler.schedule(() => Promise.resolve("success"));
   assertEquals(result, "success");
 });
 
 Deno.test("Scheduler task throws error thrown in the callback", async () => {
-  const scheduler = new Scheduler({ maxConcurrency: 1, minTime: 0 });
+  const scheduler = new Scheduler({ maxConcurrency: 1, extTime: 0 });
   const task = scheduler.schedule(() => Promise.reject(new Error("failure")));
   await assertRejects(() => task);
 });
