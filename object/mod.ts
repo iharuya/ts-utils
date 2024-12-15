@@ -4,7 +4,6 @@
  *
  * @example
  * ```ts
- * import { renameKeys } from "jsr:@iharuya/object"
  * const keysMap = { firstName: 'name', age: 'years' }
  * const obj = { firstName: 'John', age: 25 }
  * const renamedObj = renameKeys(keysMap, obj)

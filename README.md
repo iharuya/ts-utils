@@ -1,13 +1,4 @@
-# iharuya's Typescript Utils
-
-My Typescript Utility Library
-
-- Primitives
-  - array
-  - object
-  - string
-- Time
-- Tax
+# A Typescript Utilities
 
 ## Installation
 

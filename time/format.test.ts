@@ -1,4 +1,4 @@
-import { getFormattedTimestamp } from "./mod.ts";
+import { getFormattedTimestamp } from "./format.ts";
 import { assertEquals, assertMatch } from "jsr:@std/assert";
 import { FakeTime } from "jsr:@std/testing/time";
 

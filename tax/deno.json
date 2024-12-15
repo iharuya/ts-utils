@@ -1,6 +1,7 @@
 {
   "name": "@iharuya/tax",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "A collection of utility functions regarding to tax calculations.",
-  "exports": "./mod.ts"
+  "exports": "./mod.ts",
+  "license": "MIT"
 }

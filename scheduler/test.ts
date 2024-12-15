@@ -104,7 +104,7 @@ Deno.test("Scheduler limits concurrent requests and respects minTime", async () 
   const end = performance.now();
   const elapsed = end - start;
   assertAlmostEquals(elapsed, 400, 20);
-})
+});
 
 Deno.test("Scheduler limits concurrent requests and respects minTime even if tasks take arbitrary time", async () => {
   const scheduler = new Scheduler({ maxConcurrency: 3, minTime: 100 });
@@ -129,7 +129,7 @@ Deno.test("Scheduler limits concurrent requests and respects minTime even if tas
   const end = performance.now();
   const elapsed = end - start;
   assertAlmostEquals(elapsed, 450, 20);
-})
+});
 
 Deno.test("Scheduler task result goes back to the caller", async () => {
   const scheduler = new Scheduler({ maxConcurrency: 1, minTime: 0 });
