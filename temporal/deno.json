@@ -1,0 +1,7 @@
+{
+  "name": "@iharuya/temporal",
+  "version": "0.0.0",
+  "description": "Utilities of Temporal API",
+  "exports": "./mod.ts",
+  "license": "MIT"
+}
