@@ -1,0 +1,7 @@
+{
+  "name": "@iharuya/result",
+  "version": "0.0.1",
+  "description": "Result like Rust",
+  "exports": "./mod.ts",
+  "license": "MIT"
+}
